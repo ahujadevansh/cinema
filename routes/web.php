@@ -14,3 +14,21 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
+Route::get('/login/organiser', 'Auth\LoginController@showOrganiserLoginForm');
+Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
+Route::get('/register/organiser', 'Auth\RegisterController@showOrganiserRegisterForm');
+
+Route::post('/login/admin', 'Auth\LoginController@adminLogin');
+Route::post('/login/organiser', 'Auth\LoginController@OrganiserLogin');
+Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
+Route::post('/register/organiser', 'Auth\RegisterController@createOrganiser');
+
+Route::view('/home', 'home')->middleware('auth');
+Route::view('/admin', 'admin');
+Route::view('/organiser', 'organiser');
