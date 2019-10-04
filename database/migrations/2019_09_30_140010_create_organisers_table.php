@@ -24,6 +24,10 @@ class CreateOrganisersTable extends Migration
             $table->string('phone', 15)->nullable();
             $table->string('profile_image')->default('nopic.jpg');
             $table->string('password');
+            /*  remember_token column of 100 characters.
+                This column will be used to store a token for users that 
+                select the "remember me" option when logging into your application.
+            */
             $table->rememberToken();
             $table->timestamps();
         });

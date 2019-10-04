@@ -30,5 +30,7 @@ Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
 Route::post('/register/organiser', 'Auth\RegisterController@createOrganiser');
 
 Route::view('/home', 'home')->middleware('auth');
-Route::view('/admin', 'admin');
-Route::view('/organiser', 'organiser');
+Route::view('/admin', 'admin')->middleware('auth:admin');
+Route::view('/organiser', 'organiser')->middleware('auth:organiser');
+
+// https://laravel.com/docs/6.x/authentication#invalidating-sessions-on-other-devices

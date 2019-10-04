@@ -25,6 +25,10 @@ class CreateAdminsTable extends Migration
             $table->string('profile_image')->default('nopic.jpg');
             $table->string('password');
             $table->boolean('is_super')->default(false);
+            /*  remember_token column of 100 characters.
+                This column will be used to store a token for users that 
+                select the "remember me" option when logging into your application.
+            */
             $table->rememberToken();
             $table->timestamps();
         });
