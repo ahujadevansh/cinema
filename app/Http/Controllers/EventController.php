@@ -81,4 +81,13 @@ class EventController extends Controller
     {
         //
     }
+    public function event_detail ()
+    {
+         return view('Events.event_detail');
+    }
+    public function movies ()
+    {
+         return view('Events.events');
+    }
+    
 }
