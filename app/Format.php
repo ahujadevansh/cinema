@@ -10,6 +10,6 @@ class Format extends Model
     public $primaryKey = 'id';
    
     public function event(){
-        return $this->hasMany('App/Event');
+        return $this->belongsToMany('App/Event');
     }
 }

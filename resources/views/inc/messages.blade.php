@@ -1,19 +1,24 @@
-@if(count($errors) > 0)
-    @foreach($errors->all() as $error)
-        <div class="alert alert-danger">
-            {{$error}}
+<div class="container">
+    @if(count($errors) > 0)
+        @foreach($errors->all() as $error)
+            <div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{$error}}
+            </div>
+        @endforeach
+    @endif
+
+    @if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{session('success')}}
         </div>
-    @endforeach
-@endif
+    @endif
 
-@if(session('success'))
-    <div class="alert alert-success">
-        {{session('success')}}
-    </div>
-@endif
-
-@if(session('error'))
-    <div class="alert alert-danger">
-        {{session('error')}}
-    </div>
-@endif
+    @if(session('error'))
+        <div class="alert alert-danger alert-dismissible fade show">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{session('error')}}
+        </div>
+    @endif
+</div>
