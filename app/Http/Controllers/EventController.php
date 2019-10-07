@@ -145,25 +145,34 @@ class EventController extends Controller
         //
     }
 
-    public function venue()
+    // public function venue()
+    // {
+    //     $venues = array(
+    //         array(
+    //             $name => 'ashok anil',
+    //             $city => 'ulhasnagar',
+    //             $shows => array(
+    //                 '11:45', '2:30', '4:30'
+    //             )
+    //         ),
+    //         array(
+    //             $name => 'carnival: annex mall',
+    //             $city => 'borovali',
+    //             $shows => array(
+    //                 '11:45', '2:30', '4:30', '6:30'
+    //             )
+    //         )
+    //     );
+    //     $context = array();
+    //     return view('Events.venue')->with($context);
+    // }
+    public function event_detail ()
     {
-        $venues = array(
-            array(
-                $name => 'ashok anil',
-                $city => 'ulhasnagar',
-                $shows => array(
-                    '11:45', '2:30', '4:30'
-                )
-            ),
-            array(
-                $name => 'carnival: annex mall',
-                $city => 'borovali',
-                $shows => array(
-                    '11:45', '2:30', '4:30', '6:30'
-                )
-            )
-        );
-        $context = array();
-        return view('Events.venue')->with($context);
+         return view('Events.event_detail');
     }
+    public function movies ()
+    {
+         return view('Events.events');
+    }
+    
 }
