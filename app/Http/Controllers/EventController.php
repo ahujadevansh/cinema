@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Event;
+use App\Format;
+use App\Organiser;
+use App\Artist;
+
+
 
 class EventController extends Controller
 {
@@ -23,7 +29,11 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('Events.create');
+        $context = array(
+            'formats' => Format::all(),
+            'artists' => Artist::all()
+        );
+        return view('Events.create')->with($context);
     }
 
     /**
@@ -34,7 +44,60 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => ['required'],
+            'type' => ['required'],
+            'language' => ['required'],
+            'certificate' => ['required'],
+            'genre' => ['required'],
+            'release_date' => ['required','date', 'after:yesterday'],
+            'status' => ['required'],
+            'duration' => ['required'],
+            'description' => ['required'],
+            'event_pic' => ['required', 'image', 'max:1990'],
+            'trailer' => ['url','nullable'],
+        ]);
+        
+        $event = new Event;
+        $event->name = $request->input('name');
+        $event->type = $request->input('type');
+        $event->language = $request->input('language');
+        $event->certificate = $request->input('certificate');
+        $event->genre = $request->input('genre');
+        $event->release_date = $request->input('release_date');
+        $event->status = $request->input('status');
+        $event->duration = $request->input('duration');
+        $event->description = $request->input('description');
+
+        $format =array();
+        foreach ($request->get('format') as $item) {
+            $format[] = (int) $item;
+        }
+        $format = Format::find($format);
+        $event->format()->attach($format);
+
+        if($request->hasFile('event_pic')){
+            // Get filename with the extension
+            $filenameWithExt = $request->file('event_pic')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('event_pic')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file('event_pic')->storeAs('public/images/event_pics/', $fileNameToStore);
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
+
+        $event->event_pic = $fileNameToStore;
+        $event->trailer = $request->input('trailer');
+        $event->save();
+        $context = array(
+            'success' => 'Event Created',
+        );
+        return redirect('/')->with($context);
     }
 
     /**
@@ -81,6 +144,28 @@ class EventController extends Controller
     {
         //
     }
+
+    // public function venue()
+    // {
+    //     $venues = array(
+    //         array(
+    //             $name => 'ashok anil',
+    //             $city => 'ulhasnagar',
+    //             $shows => array(
+    //                 '11:45', '2:30', '4:30'
+    //             )
+    //         ),
+    //         array(
+    //             $name => 'carnival: annex mall',
+    //             $city => 'borovali',
+    //             $shows => array(
+    //                 '11:45', '2:30', '4:30', '6:30'
+    //             )
+    //         )
+    //     );
+    //     $context = array();
+    //     return view('Events.venue')->with($context);
+    // }
     public function event_detail ()
     {
          return view('Events.event_detail');

@@ -34,6 +34,7 @@ Route::view('/admin', 'admin')->middleware('auth:admin');
 Route::view('/organiser', 'organiser')->middleware('auth:organiser');
 Route::resource('events','EventController');
 
+// Route::get('/venue', 'EventController@venue');
 Route::get('/ed','EventController@event_detail');
 Route::get('/movies','EventController@movies');
 Route::get('/concerts','EventController@concerts');
