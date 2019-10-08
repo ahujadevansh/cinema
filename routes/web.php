@@ -36,7 +36,7 @@ Route::resource('events','EventController');
 
 // Route::get('/venue', 'EventController@venue');
 Route::get('/ed','EventController@event_detail');
-Route::get('/movies','EventController@movies');
+Route::get('/movies','EventController@movies')->name('movies');
 
 
 

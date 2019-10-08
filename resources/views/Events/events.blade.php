@@ -17,11 +17,21 @@
                     </a> 
           
                     <div class="collapse" id="collapseExample1" style="padding:5px">
-                         <input type="checkbox" id="test1" /> <label for="test1" >Hindi</label><br>
-                         <input type="checkbox" id="test2" checked="checked" /> <label for="test2">English</label><br>
-                         <input type="checkbox" id="test1" /> <label for="test1" >Tamil</label><br>
-                         <input type="checkbox" id="test2" checked="checked" /> <label for="test2">Sindhi</label><br>
-                         <input type="checkbox" id="test1" /> <label for="test1" >Marathi</label><br>
+                         <div class="checkbox">
+                              <label><input type="checkbox">Hindi</label>
+                         </div>
+                         <div class="checkbox">
+                              <label><input type="checkbox">English</label>
+                         </div>
+                         <div class="checkbox">
+                              <label><input type="checkbox">Tamil</label>
+                         </div>
+                         <div class="checkbox">
+                              <label><input type="checkbox">Sindhi</label>
+                         </div>
+                         <div class="checkbox">
+                              <label><input type="checkbox">Marathi</label>
+                         </div>
                     </div>
                </div>
               
@@ -32,14 +42,30 @@
                          </a> 
                     
                          <div class="collapse" id="collapseExample2" style="padding:5px">
-                              <input type="checkbox" id="test1" /> <label for="test1" >Romantic</label><br>
-                              <input type="checkbox" id="test2" checked="checked" /> <label for="test2">Action</label><br>
-                              <input type="checkbox" id="test1" /> <label for="test1" >Adventure</label><br>
-                              <input type="checkbox" id="test2" checked="checked" /> <label for="test2">Horror</label><br>
-                              <input type="checkbox" id="test1" /> <label for="test1" >Thriller</label><br>
-                              <input type="checkbox" id="test2" checked="checked" /> <label for="test2">Animated</label><br>
-                              <input type="checkbox" id="test1" /> <label for="test1" >Comedy</label><br>
-                              <input type="checkbox" id="test1" /> <label for="test1" >Biography</label><br>
+                              <div class="checkbox">
+                                   <label><input type="checkbox">Romantic</label>
+                              </div>
+                                   <div class="checkbox">
+                                   <label><input type="checkbox">Action</label>
+                              </div>
+                              <div class="checkbox">
+                                   <label><input type="checkbox">Adventure</label>
+                              </div>
+                              <div class="checkbox">
+                                   <label><input type="checkbox">Horror</label>
+                              </div>
+                              <div class="checkbox">
+                                   <label><input type="checkbox">Thriller</label>
+                              </div>
+                              <div class="checkbox">
+                                   <label><input type="checkbox">Animated</label>
+                              </div>
+                              <div class="checkbox">
+                                   <label><input type="checkbox">Comedy</label>
+                              </div>
+                              <div class="checkbox">
+                                   <label><input type="checkbox">Biography</label>
+                              </div>
                          </div>
                
                </div>
@@ -51,10 +77,18 @@
                          </a> 
                               
                          <div class="collapse" id="collapseExample3" style="padding:5px">
-                              <input type="checkbox" id="test1" /> <label for="test1" >2D</label><br>
-                              <input type="checkbox" id="test2" checked="checked" /> <label for="test2">3D</label><br>
-                              <input type="checkbox" id="test1" /> <label for="test1" >IMAX 2D</label><br>
-                              <input type="checkbox" id="test2" checked="checked" /> <label for="test2">IMAX 3D</label><br>
+                              <div class="checkbox">
+                                   <label><input type="checkbox">2D</label>
+                              </div>
+                              <div class="checkbox">
+                                   <label><input type="checkbox">3D</label>
+                              </div>
+                              <div class="checkbox">
+                                   <label><input type="checkbox">IMAX 2D</label>
+                              </div>
+                              <div class="checkbox">
+                                   <label><input type="checkbox">IMAX 3D</label>
+                              </div>
                          </div>
                </div>
           
@@ -63,7 +97,7 @@
 
           <div class="col-md-9 ">
                <div class="row">
-                         <div class="card p-2 ml-3 mt-5" style="width: 18rem;">
+                         <div class="card p-2 ml-3 mt-5 col-md-3" style="width: 18rem;">
                                    <img src="images/colour.jpg" class="card-img-top" alt="...">
                               <div class="card-body">
                                      <h5 class="card-title">Card title</h5>
@@ -72,7 +106,7 @@
                               </div>
                          </div>
 
-                         <div class="card p-2 ml-3 mt-5" style="width: 18rem;">
+                         <div class="card p-2 ml-3 mt-5 col-md-3" style="width: 18rem;">
                                    <img src="images/colour.jpg" class="card-img-top" alt="...">
                               <div class="card-body">
                                      <h5 class="card-title">Card title</h5>
@@ -81,7 +115,7 @@
                               </div>
                          </div>
 
-                         <div class="card p-2 ml-3 mt-5" style="width: 18rem;">
+                         <div class="card p-2 ml-3 mt-5 col-md-3" style="width: 18rem;">
                                    <img src="images/colour.jpg" class="card-img-top" alt="...">
                               <div class="card-body">
                                      <h5 class="card-title">Card title</h5>
@@ -90,7 +124,7 @@
                               </div>
                          </div>
 
-                         <div class="card p-2 ml-3 mt-5" style="width: 18rem;">
+                         <div class="card p-2 ml-3 mt-5 col-md-3" style="width: 18rem;">
                                    <img src="images/colour.jpg" class="card-img-top" alt="...">
                               <div class="card-body">
                                      <h5 class="card-title">Card title</h5>
@@ -99,7 +133,7 @@
                               </div>
                          </div>
 
-                         <div class="card p-2 ml-3 mt-5" style="width: 18rem;">
+                         <div class="card p-2 ml-3 mt-5 col-md-3" style="width: 18rem;">
                                    <img src="images/colour.jpg" class="card-img-top" alt="...">
                               <div class="card-body">
                                      <h5 class="card-title">Card title</h5>
