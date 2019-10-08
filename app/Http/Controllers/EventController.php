@@ -184,5 +184,8 @@ class EventController extends Controller
     {
          return view('Events.plays');
     }
+    public function venue(){
+        return view('Events.venue');
+    }
     
 }
