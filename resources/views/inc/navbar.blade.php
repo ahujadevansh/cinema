@@ -1,9 +1,3 @@
-<header>
-
-
-</header>
-
-
 <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
         <div class="container-fluid">
             <!-- <a class="navbar-brand" href="{{ url('/') }}">

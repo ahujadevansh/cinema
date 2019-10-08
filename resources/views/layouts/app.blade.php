@@ -29,7 +29,7 @@
             @include('inc.messages')
             @yield('content')
         </main>
-        {{-- @include('inc.footer') --}}
+        @include('inc.footer')
     </div>
 
     @yield('script_extra')

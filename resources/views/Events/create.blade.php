@@ -52,6 +52,7 @@
             </div>
 
             <div class="form-group">
+                <label for="format">Format:</label> <span style="color:red">*</span>
                 <select class="form-control" name="format[]" id="format" required multiple>
                     @if(count($formats) > 0)    
                         @foreach($formats as $format)
@@ -61,7 +62,7 @@
                 </select>
             </div>
 
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <select class="form-control" name="artist[]" id="artist" required multiple>
                     @if(count($artists) > 0)    
                         @foreach($artists as $artist)
@@ -69,7 +70,7 @@
                         @endforeach
                     @endif
                 </select>
-            </div>
+            </div> --}}
 
             <div class="form-group">
                 <label for="release_date">Release Date:</label> <span style="color:red">*</span>
