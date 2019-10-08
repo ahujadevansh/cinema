@@ -2,6 +2,7 @@
 
 @section('head_extra')
      <link rel="stylesheet" href="{{ asset('css/filter.css') }}">
+     <link rel="stylesheet" href="{{ asset('css/card.css') }}">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @endsection
 
@@ -69,60 +70,53 @@
                
           <div class="col-md-9 ">
                <div class="row">
-                         <div class="card p-2 ml-3 mt-5" style="width: 18rem;">
-                                   <img src="images/colour.jpg" class="card-img-top" alt="...">
-                              <div class="card-body">
-                                     <h5 class="card-title">Card title</h5>
-                                     <p class="card-text"> </p>
-                                     <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="col-md-4">
+                        <div class="card-content p-1 ml-3 mt-5 mr-1">
+                            <a href="google.com" class="card-img">
+                                <img src="https://placeimg.com/380/230/nature" alt="">
+                               
+                            </a>
+                            <div class="card-desc">
+                                <h3>Heading</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis
+                                    voluptas totam</p>
+                                    <a href="#" class="btn-card">Read</a>   
                               </div>
                          </div>
+                    </div>
+                    
 
-                         <div class="card p-2 ml-3 mt-5" style="width: 18rem;">
-                                   <img src="images/colour.jpg" class="card-img-top" alt="...">
-                              <div class="card-body">
-                                     <h5 class="card-title">Card title</h5>
-                                     <p class="card-text"> </p>
-                                     <a href="#" class="btn btn-primary">Go somewhere</a>
-                              </div>
-                         </div>
+                    <div class="col-md-4">
+                        <div class="card-content p-1 ml-3 mt-5 mr-1">
+                            <div class="card-img">
+                                <img src="https://placeimg.com/380/230/animals" alt="">
+                               
+                            </div>
+                            <div class="card-desc">
+                                <h3>Heading2</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis
+                                    voluptas totam</p>
+                                    <a href="#" class="btn-card">Read</a>   
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card-content p-1 ml-3 mt-5 mr-1">
+                            <div class="card-img">
+                                <img src="https://placeimg.com/380/230/tech" alt="">
+                               
+                            </div>
+                            <div class="card-desc">
+                                <h3>Heading3</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis
+                                    voluptas totam</p>
+                                    <a href="#" class="btn-card">Read</a>   
+                            </div>
+                        </div>
+                    </div>
 
-                         <div class="card p-2 ml-3 mt-5" style="width: 18rem;">
-                                   <img src="images/colour.jpg" class="card-img-top" alt="...">
-                              <div class="card-body">
-                                     <h5 class="card-title">Card title</h5>
-                                     <p class="card-text"> </p>
-                                     <a href="#" class="btn btn-primary">Go somewhere</a>
-                              </div>
-                         </div>
-
-                         <div class="card p-2 ml-3 mt-5" style="width: 18rem;">
-                                   <img src="images/colour.jpg" class="card-img-top" alt="...">
-                              <div class="card-body">
-                                     <h5 class="card-title">Card title</h5>
-                                     <p class="card-text"> </p>
-                                     <a href="#" class="btn btn-primary">Go somewhere</a>
-                              </div>
-                         </div>
-
-                         <div class="card p-2 ml-3 mt-5" style="width: 18rem;">
-                                   <img src="images/colour.jpg" class="card-img-top" alt="...">
-                              <div class="card-body">
-                                     <h5 class="card-title">Card title</h5>
-                                     <p class="card-text"> </p>
-                                     <a href="#" class="btn btn-primary">Go somewhere</a>
-                              </div>
-                         </div>
-
-                         <div class="card p-2 ml-3 mt-5" style="width: 18rem;">
-                                   <img src="images/colour.jpg" class="card-img-top" alt="...">
-                              <div class="card-body">
-                                     <h5 class="card-title">Card title</h5>
-                                     <p class="card-text"></p>
-                                     <a href="#" class="btn btn-primary">Go somewhere</a>
-                              </div>
-                         </div>
-               </div>
+               </div>     
                          
           </div>
      </div>
