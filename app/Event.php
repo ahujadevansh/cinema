@@ -8,15 +8,15 @@ class Event extends Model
 {
     protected $table = 'events';
     public $primaryKey = 'id';
-    public function artist(){
-        return $this->hasMany('App\Artist');
+    public function artists(){
+        return $this->belongsToMany('App\Artist');
     }
 
-    public function review(){
-        return $this->hasMany('App\UserReview');
+    public function reviews(){
+        return $this->belongsToMany('App\UserReview');
     }
 
-    public function format(){
-        return $this->hasMany('App\Format');
+    public function formats(){
+        return $this->belongsToMany('App\Format');
     }
 }

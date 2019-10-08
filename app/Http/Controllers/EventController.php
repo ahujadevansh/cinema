@@ -69,12 +69,7 @@ class EventController extends Controller
         $event->duration = $request->input('duration');
         $event->description = $request->input('description');
 
-        $format =array();
-        foreach ($request->get('format') as $item) {
-            $format[] = (int) $item;
-        }
-        $format = Format::find($format);
-        $event->format()->attach($format);
+        
 
         if($request->hasFile('event_pic')){
             // Get filename with the extension
@@ -94,6 +89,12 @@ class EventController extends Controller
         $event->event_pic = $fileNameToStore;
         $event->trailer = $request->input('trailer');
         $event->save();
+        $format =array();
+        foreach ($request->get('format') as $item) {
+            $format[] = (int) $item;
+        }
+        $format = Format::find($format);
+        $event->formats()->attach($format);
         $context = array(
             'success' => 'Event Created',
         );
@@ -166,10 +167,7 @@ class EventController extends Controller
     //     $context = array();
     //     return view('Events.venue')->with($context);
     // }
-    public function event_detail ()
-    {
-         return view('Events.event_detail');
-    }
+
     public function movies ()
     {
          return view('Events.events');

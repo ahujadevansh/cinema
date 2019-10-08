@@ -1,9 +1,3 @@
-<header>
-
-
-</header>
-
-
 <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
         <div class="container-fluid">
             <!-- <a class="navbar-brand" href="{{ url('/') }}">
@@ -17,7 +11,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Movies</a>
+                        <a class="nav-link" href="{{route ('movies') }}">Movies</a>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="#">Concerts</a>
