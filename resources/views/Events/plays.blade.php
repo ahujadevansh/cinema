@@ -48,7 +48,7 @@
                               
                          <div class="collapse" id="collapseExample3" style="padding:5px">
                               <div class="slidecontainer">
-                                   <input type="range" min="300" max="2000" value="50" class="slider" id="myRange">
+                                   <input type="range" min="300" max="2000" value="100" class="slider" id="myRange">
                                    <p>Max Price: <span id="demo"></span></p>
                                  </div>
                                  
