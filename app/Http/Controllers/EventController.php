@@ -174,5 +174,17 @@ class EventController extends Controller
     {
          return view('Events.events');
     }
+    public function concerts ()
+    {
+         return view('Events.concerts');
+    }
+    public function standup ()
+    {
+         return view('Events.standup');
+    }
+    public function plays ()
+    {
+         return view('Events.plays');
+    }
     
 }
