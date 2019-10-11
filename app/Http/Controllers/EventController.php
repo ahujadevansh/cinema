@@ -192,5 +192,7 @@ class EventController extends Controller
     public function venue(){
         return view('Events.venue');
     }
-    
+    public function concerts(){
+        return view('Events.concerts');
+    }
 }
