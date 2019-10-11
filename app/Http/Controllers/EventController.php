@@ -178,23 +178,8 @@ class EventController extends Controller
 
     public function event_detail()
     {
-        return view('events.event_detail');
-    }    
-
-    public function movies ()
-    {
-        $events = Event::where('type', 1)
-               ->orderBy('created_at', 'desc')->get();
         
-        $context = array(
-            'events' => $events,
-        );
-
         return view('Events.movies')->with($context);
-    }
-    public function concerts ()
-    {
-         return view('Events.concerts');
     }
     public function standup ()
     {
