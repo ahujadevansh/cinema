@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('head_extra')
+     <meta name="csrf-token" content="{{ csrf_token() }}">
      <link rel="stylesheet" href="{{ asset('css/filter.css') }}">
 
      <link rel="stylesheet" href="{{ asset('css/card.css') }}">
@@ -101,27 +102,37 @@
       
 
           <div class="col-md-9 ">
-               <div class="row">
+               <div class="row fetch-data">
                     @if(count($events) > 0)
                          @foreach($events as $event)
-                              <div style=" max-height: 400px!important;border-radius: 5px!important;">
+                         <div class="col-md-4">
+                              <div class="card p-1 ml-3 mt-5 mr-1">
+                                   <img class="card-img-top" src="/storage/images/event_pics/{{$event->event_pic}}" alt="{{$event->event_pic}}" height="400px">
+                                   <div class="card-body">
+                                        <h4 class="card-title">John Doe</h4>
+                                        <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                                        <a href="#" class="btn btn-primary stretched-link">See Profile</a>
+                                   </div>
+                              </div>
+                         </div>
+
+                              {{-- <div class="mt-3" style=" max-height: 400px!important;border-radius: 5px!important;">
                                    <a href="google.com">
-                                        <div class="image" style="background-image:linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)),url(/storage/images/event_pics/{{$event->event_pic}});border-top-left-radius: 5px!important;border-top-right-radius: 5px!important;"></div>
-                                        {{-- <img style="height:400px;width:300px" src="/storage/images/event_pics/{{$event->event_pic}}" alt="{{$event->event_pic}}"> --}}
+                                        {{-- <div class="image" style="background-image:linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)),url(/storage/images/event_pics/{{$event->event_pic}});border-top-left-radius: 5px!important;border-top-right-radius: 5px!important;"></div> --}}
+                                        {{-- <img style="height:400px;width:300px" src="/storage/images/event_pics/{{$event->event_pic}}" alt="{{$event->event_pic}}">
                                    </a>
                                    <div class="card-desc">
                                         <h3>Heading</h3>
                                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis
                                              voluptas totam</p>
-                                             {{-- <a href="#" class="btn-card">Read</a>    --}}
                                    </div>
-                              </div>
+                              </div> --}} 
                          @endforeach
                          {{-- {{$posts->links()}} --}}
                      @else
                          <p>No events found</p>
                      @endif
-                    <div class="col-md-4">
+                    {{-- <div class="col-md-4">
                         <div class="card-content p-1 ml-3 mt-5 mr-1">
                             <a href="google.com" class="card-img">
                                 <img src="https://placeimg.com/380/230/nature" alt="">
@@ -131,13 +142,13 @@
                                 <h3>Heading</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis
                                     voluptas totam</p>
-                                    {{-- <a href="#" class="btn-card">Read</a>    --}}
+                                    <a href="#" class="btn-card">Read</a>   
                             </div>
                          </div>
-                    </div>
+                    </div> --}}
                     
 
-                    <div class="col-md-4">
+                    {{-- <div class="col-md-4">
                         <div class="card-content p-1 ml-3 mt-5 mr-1">
                             <div class="card-img">
                                 <img src="https://placeimg.com/380/230/animals" alt="">
@@ -165,7 +176,7 @@
                                     <a href="#" class="btn-card">Read</a>   
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                </div>     
           </div>  
      </div>
@@ -174,63 +185,77 @@
 @section('script_extra')
     <script>
         $(document).ready(function(){
-            $(".language-down").hide();
-            $(".genre-up").hide();
-            $(".format-up").hide();
+          $(".language-down").hide();
+          $(".genre-up").hide();
+          $(".format-up").hide();
 
-            $(".language-up").click(function(){
-                $(".language-up").hide();
-                $(".language-down").show();
-            });
-            $(".language-down").click(function(){
-                $(".language-up").show();
-                $(".language-down").hide();
-            });
-            
-            $(".genre-up").click(function(){
-                $(".genre-up").hide();
-                $(".genre-down").show();
-            });
-            $(".genre-down").click(function(){
-                $(".genre-up").show();
-                $(".genre-down").hide();
-            });
+          $(".language-up").click(function(){
+               $(".language-up").hide();
+               $(".language-down").show();
+          });
+          $(".language-down").click(function(){
+               $(".language-up").show();
+               $(".language-down").hide();
+          });
+          
+          $(".genre-up").click(function(){
+               $(".genre-up").hide();
+               $(".genre-down").show();
+          });
+          $(".genre-down").click(function(){
+               $(".genre-up").show();
+               $(".genre-down").hide();
+          });
 
-            $(".format-up").click(function(){
-                $(".format-up").hide();
-                $(".format-down").show();
-            });
-            $(".format-down").click(function(){
-                $(".format-up").show();
-                $(".format-down").hide();
-            });
+          $(".format-up").click(function(){
+               $(".format-up").hide();
+               $(".format-down").show();
+          });
+          $(".format-down").click(function(){
+               $(".format-up").show();
+               $(".format-down").hide();
+          });
 
           function filter_data(){
 
                var language = get_filter('language');
                var genre = get_filter('genre');
                var format = get_filter('format');
-
-               $.post({
-                    url:"",
-                    data:{'format':format, 'language':language, 'genre':genre},
+               // $.ajaxSetup({
+               //      headers: {
+               //           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               //      }
+               // });
+               $.ajaxSetup({
+                    headers: {
+                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+               });
+               var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+               $.ajax({
+                    url:"{{route ('fetch-movies') }}",
+                    type: 'POST',
+                    data:{'_token': CSRF_TOKEN,'format[]':format, 'language[]':language, 'genre[]':genre},
+                    dataType: 'JSON',
                     success:function(data){
                          $('.fetch-data').html(data);
                     }
                     });
-               }
+          }
+               
 
-               function get_filter(class_name){
-               var filter = [];
-               $('.' + class_name + ':checked').each(function(){
-               filter.push($(this).val());
-               });
-               return filter;
-               }
+          function get_filter(class_name){
+          var filter = [];
+          $('.' + class_name + ':checked').each(function(){
+          filter.push($(this).val());
+          });
+          return filter;
+          }
 
-               $('.common-selector').click(function(){
-               filter_data();
-               });
+          $('.common-selector').click(function(){
+               console.log("jjj");
+          filter_data();
+          });
 
         });
     </script>

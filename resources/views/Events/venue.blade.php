@@ -1,11 +1,16 @@
 @extends('layouts.app')
 @section('head_extra')
      <link rel="stylesheet" href="{{ asset('css/venue.css') }}">
+     <script type="text/javascript" src="js/disable.js"></script>
+ 
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @endsection
 
 @section('content')
-    @include('inc.carousel')
+<div>
+  <iframe width="100%" height="300px" src="https://www.youtube.com/embed/Rbp2XUSeUNE" frameborder="0" allow=" autoplay;  gyroscope; picture-in-picture" ></iframe>
+</div>
+
     <div class="row">
 
         <div class="col-md-10">
@@ -29,32 +34,61 @@
                         <tbody>
                           <tr>
                             <th scope="row">1</th>
-                            <td>Mark</td>
+                            <td><a href="#" class="btn btn-outline-primary">9.20pm </a> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                              <a href="#" class="btn btn-outline-primary">9.20pm </a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                              <a href="#" class="btn btn-outline-primary">9.20pm </a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                              <a href="#" class="btn btn-outline-primary">9.20pm </a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+
+                            </td>
                         </tr>
 
                           <tr>
                             <th scope="row">2</th>
-                            <td>Jacob</td>
+                            <td><a href="#" class="btn btn-outline-primary">1</a> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                              <a href="#" class="btn btn-outline-primary">2</a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                              <a href="#" class="btn btn-outline-primary">3</a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                              <a href="#" class="btn btn-outline-primary">4</a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+
+</td>
                             </tr>
 
                           <tr>
                             <th scope="row">3</th>
-                            <td>Larry</td>
+                            <td><a href="#" class="btn btn-outline-primary">1</a> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                              <a href="#" class="btn btn-outline-primary">2</a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                              <a href="#" class="btn btn-outline-primary">3</a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                              <a href="#" class="btn btn-outline-primary">4</a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+
+</td>
                             </tr>
 
                             <tr>
                                     <th scope="row">1</th>
-                                    <td>Mark</td>
+                                    <td><a href="#" class="btn btn-outline-primary">1</a> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                                      <a href="#" class="btn btn-outline-primary">2</a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                                      <a href="#" class="btn btn-outline-primary">3</a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                                      <a href="#" class="btn btn-outline-primary">4</a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+        
+        </td>
                                 </tr>
         
                                   <tr>
                                     <th scope="row">2</th>
-                                    <td>Jacob</td>
+                                    <td><a href="#" class="btn btn-outline-primary">1</a> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                                      <a href="#" class="btn btn-outline-primary">2</a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                                      <a href="#" class="btn btn-outline-primary">3</a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                                      <a href="#" class="btn btn-outline-primary">4</a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+        
+        </td>
                                     </tr>
         
                                   <tr>
                                     <th scope="row">3</th>
-                                    <td>Larry</td>
+                                    <td><a href="#" class="btn btn-outline-primary">1</a> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                                      <a href="#" class="btn btn-outline-primary">2</a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                                      <a href="#" class="btn btn-outline-primary">3</a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                                      <a href="#" class="btn btn-outline-primary">4</a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                </td>
                                     </tr>
 
                         </tbody>
