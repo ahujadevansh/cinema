@@ -168,6 +168,11 @@ class EventController extends Controller
     //     return view('Events.venue')->with($context);
     // }
 
+    public function event_detail()
+    {
+        return view('Events.event_detail');
+    }
+
     public function movies ()
     {
          return view('Events.events');
