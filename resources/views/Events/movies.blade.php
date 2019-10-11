@@ -12,7 +12,7 @@
      @include('inc.carousel') 
      <div class="row">
           <div class="col-md-3">
-               <div class=" p-2 ml-5 mt-5" style="background-color:white; width:70%">
+               {{-- <div class=" p-2 ml-5 mt-5" style="background-color:white; width:70%">
                
                      
                     <a class="btn-design" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
@@ -71,7 +71,7 @@
                               <div class="checkbox">
                                    <label><input type="checkbox" class="common-selector genre" value="Biography"> Biography</label>
                               </div>
-                         </div>
+                         </div> 
                
                </div>
                
@@ -96,22 +96,20 @@
                                    <label><input type="checkbox" class="common-selector format" value="IMAX 3D"> IMAX 3D</label>
                               </div>
                          </div>
-               </div>
+               </div>--}}
           
           </div>
       
 
-          <div class="col-md-9 ">
+          <div class="col-md-12 ">
                <div class="row fetch-data">
                     @if(count($events) > 0)
                          @foreach($events as $event)
-                         <div class="col-md-4">
+                         <div class="col-md-3">
                               <div class="card p-1 ml-3 mt-5 mr-1">
                                    <img class="card-img-top" src="/storage/images/event_pics/{{$event->event_pic}}" alt="{{$event->event_pic}}" height="400px">
                                    <div class="card-body">
-                                        <h4 class="card-title">John Doe</h4>
-                                        <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-                                        <a href="#" class="btn btn-primary stretched-link">See Profile</a>
+                                   <a href="/events/{{ $event->id }}" style="text-decoration:none" class="stretched-link"><h4 class="card-title">{{ $event->name }}</h4></a>
                                    </div>
                               </div>
                          </div>

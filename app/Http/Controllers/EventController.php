@@ -117,7 +117,11 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        //
+        $event = Event::find($id);
+        $context = array(
+            'event'=>$event
+        );
+        return view('Events.event_detail')->with($context);
     }
 
     /**
@@ -224,7 +228,11 @@ class EventController extends Controller
             'genre' => $genre
         );
         return view('events.events')->with($context);
+    }
     public function event_detail(){
+
+        
         return view('Events.event_detail');
     }
     
+}

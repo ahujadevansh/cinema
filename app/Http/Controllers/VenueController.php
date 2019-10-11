@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Organiser;
 use App\Venue;
+use App\Show;
+use App\Event;
 
 class VenueController extends Controller
 {
@@ -61,7 +63,15 @@ class VenueController extends Controller
      */
     public function show($id)
     {
-        //
+        $event = Event::find($id);
+        $venues = Venue::all();
+        $shows = Show::all();
+        $context = array(
+            'venues' => $venues,
+            'shows' => $shows,
+            'event' => $event
+        );
+        return view('venues.index')->with($context);
     }
 
     /**
@@ -96,5 +106,8 @@ class VenueController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function seats() {
+        return view('venues.seat');
     }
 }

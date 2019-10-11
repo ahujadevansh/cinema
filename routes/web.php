@@ -34,7 +34,7 @@ Route::view('/admin', 'admin')->middleware('auth:admin');
 Route::view('/organiser', 'organiser')->middleware('auth:organiser');
 Route::resource('events','EventController');
 Route::resource('artists','ArtistController');
-Route::get('/venue', 'EventController@venue');
+// Route::get('/venue', 'EventController@venue');
 Route::get('/event_detail','EventController@event_detail');
 Route::get('/movies','EventController@movies')->name('movies');
 Route::get('/concerts','EventController@concerts');
@@ -42,7 +42,7 @@ Route::get('/standup','EventController@standup');
 Route::get('/plays','EventController@plays');
 Route::post('/movies/filter','EventController@fetch_movies')->name('fetch-movies');
 Route::resource('venues','VenueController');
-
-
+Route::resource('shows','ShowController');
+Route::get('/seats','VenueController@seats')->middleware('auth');
 
 // https://laravel.com/docs/6.x/authentication#invalidating-sessions-on-other-devices

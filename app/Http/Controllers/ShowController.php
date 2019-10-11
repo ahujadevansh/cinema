@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Venue;
+use App\Show;
+use App\Event;
 
 class ShowController extends Controller
 {
@@ -25,10 +27,12 @@ class ShowController extends Controller
     public function create()
     {
         $venue = Venue::all();
+        $events = Event::all();
         $context = array(
-            'venues'=> $venue
+            'venues'=> $venue,
+            'events'=> $events
         );
-        return view('venues.create')->with($context);
+        return view('shows.create')->with($context);
     }
 
     /**
@@ -39,7 +43,18 @@ class ShowController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'time' => ['required']
+        ]);
+        $show = new Show;
+        $show->time = $request->input('time');
+        $show->venue = (int) $request->input('venue');
+        $show->event_id = (int) $request->input('event');
+        $show->save();
+        $context = array(
+            'success' => 'show Created',
+        );
+        return redirect('/')->with($context);
     }
 
     /**
