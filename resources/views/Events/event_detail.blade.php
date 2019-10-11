@@ -99,8 +99,6 @@
     </div>
         
 @endsection
-<<<<<<< HEAD
-=======
 @section('script_extra')
 <script>
 $('#recipeCarousel').carousel({
@@ -123,4 +121,3 @@ $('#recipeCarousel').carousel({
   });
   </script>
 @endsection  
->>>>>>> 795324af27a7cce2f93ebe49b7d4a0c62b6608a5

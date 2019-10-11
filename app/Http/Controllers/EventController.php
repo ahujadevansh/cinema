@@ -176,9 +176,14 @@ class EventController extends Controller
     //     return view('Events.venue')->with($context);
     // }
 
-    public function event_detail()
-    {
-        
+    public function movies()
+    {   
+        $movies = Event::where('type', 1)
+               ->orderBy('created_at', 'desc')
+               ->get();
+        $context = array(
+            'events' => $movies
+        );
         return view('Events.movies')->with($context);
     }
     public function standup ()
@@ -191,6 +196,31 @@ class EventController extends Controller
     }
     public function venue(){
         return view('Events.venue');
+    }
+    public function fetch_movies(Request $request)
+    {   
+        $format = array();
+        $language = array();
+        $genre = array();
+        foreach ($request->get('format') as $item) {
+            $format[] = (int) $item;
+        }
+        foreach ($request->get('genre') as $item) {
+            $genre[] = (int) $item;
+        }
+        foreach ($request->get('language') as $item) {
+            $language[] = (int) $item;
+        }
+
+        // $movies = Event::where('type', 1)
+        //        ->orderBy('created_at', 'desc')
+        //        ->get();
+        $context = array(
+            'format' => $format,
+            'language' => $language,
+            'genre' => $genre
+        );
+        return view('events.events')->with($context);
     }
     
 }

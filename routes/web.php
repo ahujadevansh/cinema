@@ -40,7 +40,8 @@ Route::get('/movies','EventController@movies')->name('movies');
 Route::get('/concerts','EventController@concerts');
 Route::get('/standup','EventController@standup');
 Route::get('/plays','EventController@plays');
-
+Route::post('/movies/filter','EventController@fetch_movies')->name('fetch-movies');
+Route::resource('venues','VenueController');
 
 
 
