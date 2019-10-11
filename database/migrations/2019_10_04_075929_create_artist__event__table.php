@@ -16,9 +16,7 @@ class CreateArtistEventTable extends Migration
         Schema::create('artist_event', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('artist_id');
-            $table->bigInteger('event_id');
-            $table->string('as');
-            
+            $table->bigInteger('event_id');            
         });
     }
 

@@ -95,6 +95,14 @@ class EventController extends Controller
         }
         $format = Format::find($format);
         $event->formats()->attach($format);
+
+        $artist =array();
+        foreach ($request->get('artist') as $item) {
+            $artist[] = (int) $item;
+        }
+        $artist = Artist::find($artist);
+        $event->artists()->attach($artist);
+
         $context = array(
             'success' => 'Event Created',
         );
@@ -168,9 +176,21 @@ class EventController extends Controller
     //     return view('Events.venue')->with($context);
     // }
 
+    public function event_detail()
+    {
+        return view('events.event_detail');
+    }    
+
     public function movies ()
     {
-         return view('Events.events');
+        $events = Event::where('type', 1)
+               ->orderBy('created_at', 'desc')->get();
+        
+        $context = array(
+            'events' => $events,
+        );
+
+        return view('Events.movies')->with($context);
     }
     public function concerts ()
     {

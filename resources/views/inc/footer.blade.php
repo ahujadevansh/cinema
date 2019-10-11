@@ -3,7 +3,7 @@
 <footer class="footer-distributed">
  
     <div class="footer-left">
-        <img src="images/logo.jpg">
+        <img src="{{ asset('images/logo.jpg') }}">
         <h3>Cinema<span>घर</span></h3>
 
         <p class="footer-company-name">© 2019 ADE Entertainment Pvt. Ltd. All Rights Reserved.</p>
