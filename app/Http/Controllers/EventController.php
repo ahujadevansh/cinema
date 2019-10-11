@@ -197,6 +197,7 @@ class EventController extends Controller
     public function venue(){
         return view('Events.venue');
     }
+<<<<<<< HEAD
     public function fetch_movies(Request $request)
     {   
         $format = array();
@@ -221,6 +222,10 @@ class EventController extends Controller
             'genre' => $genre
         );
         return view('events.events')->with($context);
+=======
+    public function event_detail(){
+        return view('Events.event_detail');
+>>>>>>> 0c8a57a2d952548f1243fa967f0b37854a497b5f
     }
     
 }
