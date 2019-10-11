@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 @extends('layouts.app')
 {{-- <link rel="stylesheet" href="{{ asset('css/iframe.css') }}"> --}}
  <link rel="stylesheet" href="{{ asset('css/rating.css') }}">
@@ -54,4 +52,3 @@
             </div>
         </div
 @endsection
->>>>>>> be5042c21c0d522b495a81bd1d8c2a6ac147c326
