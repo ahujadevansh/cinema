@@ -33,7 +33,7 @@ Route::view('/home', 'home')->middleware('auth');
 Route::view('/admin', 'admin')->middleware('auth:admin');
 Route::view('/organiser', 'organiser')->middleware('auth:organiser');
 Route::resource('events','EventController');
-
+Route::resource('artists','ArtistController');
 Route::get('/venue', 'EventController@venue');
 Route::get('/event_detail','EventController@event_detail');
 Route::get('/movies','EventController@movies')->name('movies');
