@@ -8,6 +8,7 @@ use App\Venue;
 use App\Show;
 use App\Event;
 use App\Bill;
+use App\User;
 
 class VenueController extends Controller
 {
@@ -137,12 +138,20 @@ class VenueController extends Controller
         $bill->date = date("Y-m-d H:i:s");
         $bill->user = auth()->user()->id;
         $show = Show::find($bill->show);
+        $user = User::find($bill->user);
+        $venue = Venue::find($show->venue);
+        $event = Event::find($show->event_id);
         $bill->total_price = $bill->no_of_seats * $show->price;
         $bill->save();
         $context = array(
             'success' => 'Seats Booked',
+            'bill' => $bill,
+            'user' => $user,
+            'show' => $show,
+            'venue' => $venue,
+            'event' => $event
         );
-        return redirect('/')->with($context);
+        return view('venues.bill')->with($context);
     }
 
 }

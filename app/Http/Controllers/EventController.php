@@ -118,8 +118,10 @@ class EventController extends Controller
     public function show($id)
     {
         $event = Event::find($id);
+        $artist = $event->artists()->get();
         $context = array(
-            'event'=>$event
+            'event'=>$event,
+            'artists'=>$artist
         );
         return view('Events.event_detail')->with($context);
     }

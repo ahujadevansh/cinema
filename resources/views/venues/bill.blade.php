@@ -13,12 +13,41 @@
     <div class="container">
     
         <div class="table-responsive-md mt-3">
-            <table class="table table-borderless">
+            <table class="table table-hover table-dark table-striped" style="color:white">
             <thead>
-                <th scope="col">&nbsp;{{ $i }}</th>
+                <tr>
+                    <th colspan="2" style="text-align:center">Bill</th>
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <th>Name</th>
+                    <td>{{$user->first_name}} {{$user->last_name}}</td>
+                </tr>
+                <tr>
+                    <th>Event</th>
+                    <td>{{$event->name}}</td>
+                </tr>
+                <tr>
+                    <th>Venue</th>
+                    <td>{{$venue->name}}</td>
+                </tr>
+                <tr>
+                    <th>Show</th>
+                    <td>{{$show->time}}</td>
+                </tr>
+                <tr>
+                    <th>No of Tickets</th>
+                    <td>{{$bill->no_of_seats}}</td>
+                </tr>
+                <tr>
+                    <th>Seats</th>
+                    <td>{{$bill->seats}}</td>
+                </tr>
+                <tr>
+                    <th>Amount</th>
+                    <td>₹ {{$bill->total_price}}</td>
+                </tr>                                                      
             </tbody>
             </table>
         </div>
