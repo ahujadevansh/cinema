@@ -65,10 +65,10 @@ class VenueController extends Controller
     {
         $event = Event::find($id);
         $venues = Venue::all();
-        $shows = Show::all();
+        // $shows = Show::all();
         $context = array(
             'venues' => $venues,
-            'shows' => $shows,
+            // 'shows' => $shows,
             'event' => $event
         );
         return view('venues.index')->with($context);

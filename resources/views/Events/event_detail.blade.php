@@ -15,7 +15,7 @@
 
 @section('content')
 <div>
-<iframe width="100%" height="300px" src="{{ $event->trailer }}" frameborder="0" allow=" autoplay;  gyroscope; picture-in-picture" ></iframe>
+<iframe width="100%" height="300px" src="{{ $event->trailer }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
    <div class="row">
             <div class="col-md-4">

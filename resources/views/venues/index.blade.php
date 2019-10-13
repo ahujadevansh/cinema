@@ -35,6 +35,11 @@
                                 @foreach($venues as $venue)
                                     <tr>
                                         <td>{{$venue->name}}</td>
+                                        @php
+                                            $shows = App\Show::where('venue', $venue->id)
+                                                                ->where('event_id', $event->id)
+                                                                ->get();
+                                        @endphp
                                         @if(count($shows) > 0)
                                             @foreach($shows as $show)
                                                 @if($venue->id == $show->venue)

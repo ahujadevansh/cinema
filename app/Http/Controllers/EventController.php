@@ -158,28 +158,6 @@ class EventController extends Controller
         //
     }
 
-    // public function venue()
-    // {
-    //     $venues = array(
-    //         array(
-    //             $name => 'ashok anil',
-    //             $city => 'ulhasnagar',
-    //             $shows => array(
-    //                 '11:45', '2:30', '4:30'
-    //             )
-    //         ),
-    //         array(
-    //             $name => 'carnival: annex mall',
-    //             $city => 'borovali',
-    //             $shows => array(
-    //                 '11:45', '2:30', '4:30', '6:30'
-    //             )
-    //         )
-    //     );
-    //     $context = array();
-    //     return view('Events.venue')->with($context);
-    // }
-
     public function movies()
     {   
         $movies = Event::where('type', 1)
@@ -205,29 +183,40 @@ class EventController extends Controller
         return view('Events.concerts');
     }
     public function fetch_movies(Request $request)
-    {   
-        $format = array();
-        $language = array();
-        $genre = array();
-        foreach ($request->get('format') as $item) {
-            $format[] = (int) $item;
-        }
-        foreach ($request->get('genre') as $item) {
-            $genre[] = (int) $item;
-        }
-        foreach ($request->get('language') as $item) {
-            $language[] = (int) $item;
-        }
+    {
+        $format = $request->get('format');
+        $language = $request->get('language');
+        $genre = $request->get('genre');
 
-        // $movies = Event::where('type', 1)
-        //        ->orderBy('created_at', 'desc')
-        //        ->get();
+        if(empty( $genre ) and empty( $language ) and empty( $format )){
+            $movies = Event::where('type', 1)
+                        ->orderBy('created_at', 'desc')
+                        ->get();
+        }
+        else
+        {
+            // $movies = emptyEvent::all();
+            if(empty($language)){
+                $language = array("Hindi", "English", "Tamil", "sindhi", "Marathi");
+            }
+            if(empty($genre))
+            {
+                $genre = array("Romantic", "Action", "Adventure", "Horror", "Thriller", "Animated", "Comedy", "Biography");
+            }
+            if(empty($format))
+            {
+                $format= array(1,2);
+            }
+            $movies = Event::where('type', 1)
+                            ->whereIn('language', $language)
+                            ->whereIn('genre', $genre)
+                            ->get();
+        }
+        
         $context = array(
-            'format' => $format,
-            'language' => $language,
-            'genre' => $genre
+            'events'=>$movies,
         );
-        return view('events.events')->with($context);
+        return view('Events.events')->with($context);
     }
     public function event_detail(){
 

@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
 @section('head_extra')
-     <meta name="csrf-token" content="{{ csrf_token() }}">
-     <link rel="stylesheet" href="{{ asset('css/filter.css') }}">
-
-     <link rel="stylesheet" href="{{ asset('css/card.css') }}">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @endsection
 
@@ -12,7 +8,7 @@
      @include('inc.carousel') 
      <div class="row">
           <div class="col-md-3">
-               {{-- <div class=" p-2 ml-5 mt-5" style="background-color:white; width:70%">
+               <div class=" p-2 ml-5 mt-5" style="background-color:white; width:70%">
                
                      
                     <a class="btn-design" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
@@ -84,97 +80,26 @@
                               
                          <div class="collapse" id="collapse3" style="padding:5px">
                               <div class="checkbox">
-                                   <label><input type="checkbox" class="common-selector format" value="2D"> 2D</label>
+                                   <label><input type="checkbox" class="common-selector format" value="1"> 2D</label>
                               </div>
                               <div class="checkbox">
-                                   <label><input type="checkbox" class="common-selector format" value="3D"> 3D</label>
+                                   <label><input type="checkbox" class="common-selector format" value="2"> 3D</label>
+                              </div>
+                              {{-- <div class="checkbox">
+                                   <label><input type="checkbox" class="common-selector format" value="id in format table"> IMAX 2D</label>
                               </div>
                               <div class="checkbox">
-                                   <label><input type="checkbox" class="common-selector format" value="IMAX 2D"> IMAX 2D</label>
-                              </div>
-                              <div class="checkbox">
-                                   <label><input type="checkbox" class="common-selector format" value="IMAX 3D"> IMAX 3D</label>
-                              </div>
+                                   <label><input type="checkbox" class="common-selector format" value="id in format table"> IMAX 3D</label>
+                              </div> --}}
                          </div>
-               </div>--}}
+               </div>
           
           </div>
       
 
-          <div class="col-md-12 ">
+          <div class="col-md-9">
                <div class="row fetch-data">
-                    @if(count($events) > 0)
-                         @foreach($events as $event)
-                         <div class="col-md-3">
-                              <div class="card p-1 ml-3 mt-5 mr-1">
-                                   <img class="card-img-top" src="/storage/images/event_pics/{{$event->event_pic}}" alt="{{$event->event_pic}}" height="400px">
-                                   <div class="card-body">
-                                   <a href="/events/{{ $event->id }}" style="text-decoration:none" class="stretched-link"><h4 class="card-title">{{ $event->name }}</h4></a>
-                                   </div>
-                              </div>
-                         </div>
-
-                              {{-- <div class="mt-3" style=" max-height: 400px!important;border-radius: 5px!important;">
-                                   <a href="google.com">
-                                        {{-- <div class="image" style="background-image:linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)),url(/storage/images/event_pics/{{$event->event_pic}});border-top-left-radius: 5px!important;border-top-right-radius: 5px!important;"></div> --}}
-                                        {{-- <img style="height:400px;width:300px" src="/storage/images/event_pics/{{$event->event_pic}}" alt="{{$event->event_pic}}">
-                                   </a>
-                                   <div class="card-desc">
-                                        <h3>Heading</h3>
-                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis
-                                             voluptas totam</p>
-                                   </div>
-                              </div> --}} 
-                         @endforeach
-                         {{-- {{$posts->links()}} --}}
-                     @else
-                         <p>No events found</p>
-                     @endif
-                    {{-- <div class="col-md-4">
-                        <div class="card-content p-1 ml-3 mt-5 mr-1">
-                            <a href="google.com" class="card-img">
-                                <img src="https://placeimg.com/380/230/nature" alt="">
-                               
-                            </a>
-                            <div class="card-desc">
-                                <h3>Heading</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis
-                                    voluptas totam</p>
-                                    <a href="#" class="btn-card">Read</a>   
-                            </div>
-                         </div>
-                    </div> --}}
-                    
-
-                    {{-- <div class="col-md-4">
-                        <div class="card-content p-1 ml-3 mt-5 mr-1">
-                            <div class="card-img">
-                                <img src="https://placeimg.com/380/230/animals" alt="">
-                               
-                            </div>
-                            <div class="card-desc">
-                                <h3>Heading2</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis
-                                    voluptas totam</p>
-                                    <a href="#" class="btn-card">Read</a>   
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <div class="card-content p-1 ml-3 mt-5 mr-1">
-                            <div class="card-img">
-                                <img src="https://placeimg.com/380/230/tech" alt="">
-                               
-                            </div>
-                            <div class="card-desc">
-                                <h3>Heading3</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis
-                                    voluptas totam</p>
-                                    <a href="#" class="btn-card">Read</a>   
-                            </div>
-                        </div>
-                    </div> --}}
+                    @include('Events.events')
                </div>     
           </div>  
      </div>
@@ -219,39 +144,28 @@
                var language = get_filter('language');
                var genre = get_filter('genre');
                var format = get_filter('format');
-               // $.ajaxSetup({
-               //      headers: {
-               //           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-               //      }
-               // });
-               $.ajaxSetup({
-                    headers: {
-                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-               });
-               var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
                $.ajax({
                     url:"{{route ('fetch-movies') }}",
-                    type: 'POST',
-                    data:{'_token': CSRF_TOKEN,'format[]':format, 'language[]':language, 'genre[]':genre},
-                    dataType: 'JSON',
+                    type:"POST",
+                    data:{'_token': '{!! csrf_token() !!}','format':format, 'language':language, 'genre':genre},
                     success:function(data){
                          $('.fetch-data').html(data);
+                         // console.log(data);
+                    },error:function(e){
+                         alert("error!!!!"+e);
                     }
                     });
-          }
-               
+               }
 
           function get_filter(class_name){
-          var filter = [];
-          $('.' + class_name + ':checked').each(function(){
-          filter.push($(this).val());
-          });
-          return filter;
+               var filter = [];
+               $('.' + class_name + ':checked').each(function(){
+                    filter.push($(this).val());
+               });
+               return filter;
           }
 
           $('.common-selector').click(function(){
-               console.log("jjj");
           filter_data();
           });
 
