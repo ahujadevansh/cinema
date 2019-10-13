@@ -45,5 +45,5 @@ Route::post('/movies/filter','EventController@fetch_movies')->name('fetch-movies
 Route::resource('venues','VenueController');
 Route::resource('shows','ShowController');
 Route::get('/seats/{id}','VenueController@seats')->middleware('auth');
-
+Route::post('/book','VenueController@book')->middleware('auth');
 // https://laravel.com/docs/6.x/authentication#invalidating-sessions-on-other-devices

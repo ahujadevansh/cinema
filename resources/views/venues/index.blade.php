@@ -16,10 +16,10 @@
         <div class="col-md-10">
                 <div class="topnav" id="myTopnav">
                         <a href="#home" >Today</a>
-                        <a href="#news">Tomorrow</a>
-                        <a href="#contact"> <?php echo date("d M", strtotime("+2 day")); ?> </a>
-                        <a href="#contact"> <?php echo date("d M", strtotime("+3 day")); ?> </a>
-                        <a href="#contact"> <?php echo date("d M", strtotime("+4 day")); ?> </a>
+                        {{-- <a href="#news">Tomorrow</a>
+                        <a href="#contact"> @php echo date("d M", strtotime("+2 day")); @endphp </a>
+                        <a href="#contact"> @php echo date("d M", strtotime("+3 day")); @endphp </a>
+                        <a href="#contact"> @php echo date("d M", strtotime("+4 day")); @endphp </a> --}}
                         
                 </div>
                 <br>

@@ -24,8 +24,9 @@
                 </tr>
             </thead>
             <tbody>
-                {!! Form::open(['action' => 'ShowController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data', 'name' => 'book', 'id' => 'book']) !!}
-                    <button type="button" id="submit" class="btn btn-info btn float-right">PAY NOW</button>  
+                {!! Form::open(['action' => 'VenueController@book', 'method' => 'POST', 'enctype' => 'multipart/form-data', 'name' => 'book', 'id' => 'book']) !!}
+                    @csrf
+                    <button type="submit" id="submit" class="btn btn-info btn float-right">PAY</button>  
                     @php
                         $str = array('A','B','C','D','E','F','G','H');
                     @endphp
@@ -60,6 +61,7 @@
                         <td></td>
                         <td   class="bg-primary" style="border-radius:25px;text-align:center" colspan="9">Screen This Way</td>
                     </tr>
+                    <input type="hidden" name="show" value="{{$show->id}}">
                 {!! Form::close() !!}
             </tbody>
             </table>
@@ -70,12 +72,27 @@
 @section('script_extra')
     <script>
         $(document).ready(function(){
-            $('#submit').click(function() {
-
-                var seats = array();
+            $('#submit').click(function(e) {
+                
+                var seats = [];
                 $('.seat:checked').each(function(){
                     seats.push($(this).val());
                });
+               if(seats.length == 0){
+                    e.preventDefault();
+                    alert("no seats selected");
+               }
+               else{
+                no_of_seats =  seats.length;  
+                alert("Number of seats booked "+no_of_seats);              
+                seats = JSON.stringify(seats);
+                var input_seat = $("<input>").attr("type", "text").attr("name", "seats").val(seats);
+                var input_no_of_seats = $("<input>").attr("type", "number").attr("name", "no_of_seats").val(no_of_seats);
+                var book_form = $('form[name="book"]');
+                book_form.append(input_seat);
+                book_form.append(input_no_of_seats);
+                book_form.submit();
+            }
                
             }); 
         });

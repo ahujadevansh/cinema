@@ -7,6 +7,7 @@ use App\Organiser;
 use App\Venue;
 use App\Show;
 use App\Event;
+use App\Bill;
 
 class VenueController extends Controller
 {
@@ -115,4 +116,33 @@ class VenueController extends Controller
         );
         return view('venues.seat')->with($context);
     }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function book(Request $request)
+    {
+        $this->validate($request, [
+            'seats' => ['required'],
+            'no_of_seats' => ['required']
+        ]);
+        $bill = new Bill;
+        $bill->show = $request->input('show');
+        
+        $bill->no_of_seats = (int) $request->input('no_of_seats');
+        $bill->seats = $request->input('seats');
+        $bill->date = date("Y-m-d H:i:s");
+        $bill->user = auth()->user()->id;
+        $show = Show::find($bill->show);
+        $bill->total_price = $bill->no_of_seats * $show->price;
+        $bill->save();
+        $context = array(
+            'success' => 'Seats Booked',
+        );
+        return redirect('/')->with($context);
+    }
+
 }
