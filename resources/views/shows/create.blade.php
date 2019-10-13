@@ -32,6 +32,12 @@
                     @endif
                 </select>
             </div>
+
+            <div class="form-group">
+                <label for="time">Price:</label> <span style="color:red">*</span>
+                <input type="number" step="0.01" name="price" class="form-control" id="price" required>
+            </div>
+            
             {{-- <input type="hidden" name="_method" value="PUT"> --}}
             <input type="submit" class="btn btn-primary" value="Submit">
         {!! Form::close() !!}

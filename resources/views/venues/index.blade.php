@@ -43,7 +43,7 @@
                                         @if(count($shows) > 0)
                                             @foreach($shows as $show)
                                                 @if($venue->id == $show->venue)
-                                                    <td><a href="#" class="btn btn-outline-primary">{{ $show->time }}</a></td>
+                                                    <td><a href="/seats/{{ $show->id }}" class="btn btn-outline-primary">{{ $show->time }}</a></td>
                                                 @endif
                                             @endforeach
                                         @else

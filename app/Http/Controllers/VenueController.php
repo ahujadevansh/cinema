@@ -107,7 +107,12 @@ class VenueController extends Controller
     {
         //
     }
-    public function seats() {
-        return view('venues.seat');
+    public function seats($id) {
+
+        $show = Show::find($id);
+        $context = array(
+            'show' => $show
+        );
+        return view('venues.seat')->with($context);
     }
 }

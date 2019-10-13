@@ -50,6 +50,7 @@ class ShowController extends Controller
         $show->time = $request->input('time');
         $show->venue = (int) $request->input('venue');
         $show->event_id = (int) $request->input('event');
+        $show->price = (float) $request->input('price');
         $show->save();
         $context = array(
             'success' => 'show Created',
