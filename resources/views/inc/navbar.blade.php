@@ -13,15 +13,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route ('movies') }}">Movies</a>
                     </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="#">Concerts</a>
-                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Plays</a>
+                        <a class="nav-link" href="{{route ('plays') }}">Plays</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Stand Ups</a>
-                    </li>
+                    
                 </ul>
 
                 <!-- Right Side Of Navbar -->

@@ -52,6 +52,7 @@
                     <option value="Thriller">Thriller</option>
                     <option value="Biography">Biography</option>
                     <option value="Animated">Animated</option>
+                    <option value="plays">plays</option>
                 </select>
             </div>
 
