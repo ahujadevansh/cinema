@@ -9,7 +9,7 @@
         {!! Form::open(['action' => 'ShowController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data',]) !!}
             <div class="form-group">
                 <label for="time">Time:</label> <span style="color:red">*</span>
-                <input type="text" name="time" class="form-control" id="time" required>
+                <input type="time" name="time" class="form-control" id="time" required>
             </div>
 
             <div class="form-group">

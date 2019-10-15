@@ -12,6 +12,15 @@ use App\Artist;
 
 class EventController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:admin', 
+                            ['except' => [  'index', 'show','fetch_plays',
+                                            'fetch_movies', 'concerts','venue',
+                                            'plays', 'standup','movies',
+                                        ]]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +28,12 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $events = Event::all();
+
+        $context = array(
+            'events' => $events
+        );
+        return view('welcome')->with($context);
     }
 
     /**
@@ -242,12 +256,6 @@ class EventController extends Controller
         );
         return view('Events.events')->with($context);
     
-}
-
-    public function event_detail(){
-
-        
-        return view('Events.event_detail');
     }
     
 }

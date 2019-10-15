@@ -6,9 +6,16 @@ use Illuminate\Http\Request;
 use App\Venue;
 use App\Show;
 use App\Event;
+use Auth;
 
 class ShowController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:organiser',['except' => [  'index', 'show']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -24,12 +31,13 @@ class ShowController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        $venue = Venue::all();
+        $organiser = Auth::id();
+        $venues = Venue::where('organiser', $organiser )->get();
         $events = Event::all();
         $context = array(
-            'venues'=> $venue,
+            'venues'=> $venues,
             'events'=> $events
         );
         return view('shows.create')->with($context);
