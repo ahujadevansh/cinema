@@ -15,9 +15,10 @@ class CreateEventFormatTable extends Migration
     {
         Schema::create('event_format', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('format_id');
-            $table->bigInteger('event_id');
-            
+            $table->unsignedBigInteger('format_id');
+            $table->unsignedBigInteger('event_id');
+            $table->foreign('format_id')->references('id')->on('formats')->ondelete('cascade');
+            $table->foreign('event_id')->references('id')->on('events')->ondelete('cascade');
         });
     }
 
