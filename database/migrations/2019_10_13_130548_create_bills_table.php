@@ -15,7 +15,8 @@ class CreateBillsTable extends Migration
     {
         Schema::create('bills', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user')->unsigned()->index();
+            $table->unsignedBigInteger('user');
+            $table->foreign('user')->references('id')->on('users')->ondelete('cascade');
             $table->bigInteger('show');
             $table->dateTime('date');
             $table->integer('no_of_seats');

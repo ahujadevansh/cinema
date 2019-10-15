@@ -172,11 +172,18 @@ class EventController extends Controller
     }
     public function standup ()
     {
+        
          return view('Events.standup');
     }
     public function plays ()
     {
-         return view('Events.plays');
+        $plays = Event::where('type', 3)
+               ->orderBy('created_at', 'desc')
+               ->get();
+        $context = array(
+            'events' => $plays
+        );
+         return view('Events.plays')->with($context);
     }
     public function venue(){
         return view('Events.venue');
@@ -220,6 +227,23 @@ class EventController extends Controller
         );
         return view('Events.events')->with($context);
     }
+
+    public function fetch_plays(Request $request)
+    {
+        $language = $request->get('language');
+        if(empty($language)){
+            $language= array("Hindi", "English", "Tamil", "sindhi", "Marathi");
+        }
+        $plays = Event::where('type', 3)
+        ->whereIn('language', $language)
+        ->get();
+        $context = array(
+            'events'=>$plays,
+        );
+        return view('Events.events')->with($context);
+    
+}
+
     public function event_detail(){
 
         

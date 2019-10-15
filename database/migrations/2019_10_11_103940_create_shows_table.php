@@ -16,7 +16,11 @@ class CreateShowsTable extends Migration
         Schema::create('shows', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('time');
-            $table->bigInteger('venue');
+            $table->unsignedBigInteger('venue');
+            $table->unsignedBigInteger('event_id');
+            $table->foreign('event_id')->references('id')->on('events')->ondelete('cascade');
+            $table->foreign('venue')->references('id')->on('venues')->ondelete('cascade');
+            $table->float('price');
             $table->timestamps();
         });
     }

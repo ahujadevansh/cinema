@@ -15,8 +15,10 @@ class CreateArtistEventTable extends Migration
     {
         Schema::create('artist_event', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('artist_id');
-            $table->bigInteger('event_id');            
+            $table->unsignedBigInteger('artist_id');
+            $table->unsignedBigInteger('event_id');
+            $table->foreign('artist_id')->references('id')->on('artists')->ondelete('cascade');
+            $table->foreign('event_id')->references('id')->on('events')->ondelete('cascade');            
         });
     }
 

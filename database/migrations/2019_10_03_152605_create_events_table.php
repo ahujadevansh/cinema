@@ -25,7 +25,7 @@ class CreateEventsTable extends Migration
             $table->string('duration');
             $table->string('event_pic');
             $table->longText('description');
-            $table->longText('trailer');
+            $table->longText('trailer')->nullable();
             // $table->
             // $table->
             // $table->
