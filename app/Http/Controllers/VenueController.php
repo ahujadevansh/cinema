@@ -9,6 +9,7 @@ use App\Show;
 use App\Event;
 use App\Bill;
 use App\User;
+use Illuminate\Support\Facades\DB;
 
 class VenueController extends Controller
 {
@@ -74,7 +75,7 @@ class VenueController extends Controller
     public function show($id)
     {
         $event = Event::find($id);
-        $venues = Venue::all();
+        $venues = DB::select('select distinct `venues`.*, `shows`.`event_id` as `pivot_event_id`, `shows`.`venue` as `pivot_venue_id` from `venues` inner join `shows` on `venues`.`id` = `shows`.`venue` where `shows`.`event_id` = '.$id);
         // $shows = Show::all();
         $context = array(
             'venues' => $venues,

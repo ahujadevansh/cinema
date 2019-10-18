@@ -19,4 +19,8 @@ class Event extends Model
     public function formats(){
         return $this->belongsToMany('App\Format');
     }
+
+    public function venues(){
+        return $this->belongsToMany('App\Venue', 'events_venues');
+    }
 }

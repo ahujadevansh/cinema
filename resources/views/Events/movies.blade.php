@@ -71,7 +71,7 @@
                
                </div>
                
-               <div class=" p-2 ml-5 mt-5" style="background-color: white;width:70%">
+               {{-- <div class=" p-2 ml-5 mt-5" style="background-color: white;width:70%">
           
                          <a class="btn-design" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
                             <i  class="fa fa-angle-down format-down"> Format</i>
@@ -85,14 +85,14 @@
                               <div class="checkbox">
                                    <label><input type="checkbox" class="common-selector format" value="2"> 3D</label>
                               </div>
-                              {{-- <div class="checkbox">
+                              <div class="checkbox">
                                    <label><input type="checkbox" class="common-selector format" value="id in format table"> IMAX 2D</label>
                               </div>
                               <div class="checkbox">
                                    <label><input type="checkbox" class="common-selector format" value="id in format table"> IMAX 3D</label>
-                              </div> --}}
+                              </div>
                          </div>
-               </div>
+               </div> --}}
           
           </div>
       

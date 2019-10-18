@@ -14,4 +14,9 @@ class Venue extends Model
     public function shows(){
         return $this->hasMany('App\Show');
     }
+
+    public function events(){
+        return $this->belongsToMany('App\Event', 'events_venues');
+    }
+
 }

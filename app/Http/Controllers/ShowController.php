@@ -60,6 +60,10 @@ class ShowController extends Controller
         $show->event_id = (int) $request->input('event');
         $show->price = (float) $request->input('price');
         $show->save();
+        $event = Event::find($show->event_id);
+        $venue = Venue::find($show->event_id);
+        $event->venues()->attach($venue);
+        $event->save();
         $context = array(
             'success' => 'show Created',
         );
