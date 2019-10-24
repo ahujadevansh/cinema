@@ -7,7 +7,7 @@ use App\Event;
 use App\Format;
 use App\Organiser;
 use App\Artist;
-
+use Illuminate\Support\Facades\DB;
 
 
 class EventController extends Controller
@@ -28,8 +28,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
-
+        // $events = Event::all();
+        $events = DB::select('select * from events');
         $context = array(
             'events' => $events
         );
@@ -176,9 +176,10 @@ class EventController extends Controller
 
     public function movies()
     {   
-        $movies = Event::where('type', 1)
-               ->orderBy('created_at', 'desc')
-               ->get();
+        // $movies = Event::where('type', 1)
+        //        ->orderBy('created_at', 'desc')
+        //        ->get();
+        $movies = DB::select('select * from `events` where `type` = 1 order by `created_at` desc');
         $context = array(
             'events' => $movies
         );
